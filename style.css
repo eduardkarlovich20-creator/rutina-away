@@ -1556,7 +1556,10 @@ body.scroll-mode .slide-deck-item:last-child {
   margin: 0 auto 12px;
 }
 
-/* Responsive adjustments */
+/* ==========================================================================
+   MOBILE & RESPONSIVE PERFECTION
+   ========================================================================== */
+
 @media (max-width: 1024px) {
   .slide-columns-split, .audience-grid-deck, .comparison-dual-deck {
     grid-template-columns: 1fr;
@@ -1570,23 +1573,342 @@ body.scroll-mode .slide-deck-item:last-child {
 }
 
 @media (max-width: 768px) {
-  .slide-main-heading {
-    font-size: 2rem;
+  :root {
+    --topbar-height: 60px;
+    --bottombar-height: 0px;
   }
+
+  /* Hide fixed bottom keyboard helper on mobile to save valuable screen space */
+  .deck-bottom-footer {
+    display: none;
+  }
+
+  /* Presentation deck padding on mobile */
+  .presentation-deck {
+    margin-bottom: 0;
+  }
+
+  body.scroll-mode .slide-deck-item {
+    padding: 48px 16px 54px;
+    min-height: auto;
+  }
+
+  /* Topbar Mobile Layout */
+  .deck-topbar {
+    padding: 0 14px;
+  }
+
+  .brand-logo-deck {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+  }
+
+  .logo-sym-deck {
+    font-size: 1.2rem;
+  }
+
+  .project-title {
+    font-size: 0.95rem;
+  }
+
+  .project-subtitle {
+    display: none;
+  }
+
+  .deck-slide-nav {
+    padding: 3px 8px;
+    gap: 6px;
+  }
+
+  .nav-arrow-btn {
+    padding: 2px 6px;
+    font-size: 0.8rem;
+  }
+
+  .slide-counter {
+    font-size: 0.8rem;
+    min-width: 48px;
+  }
+
+  .topbar-right .btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  /* Slide Typography on Mobile */
+  .slide-top-tag {
+    font-size: 0.75rem;
+    margin-bottom: 14px;
+  }
+
   .brand-large {
-    font-size: 2.8rem;
+    font-size: 2.3rem;
   }
-  .grid-4-deck, .pricing-deck-grid, .roadmap-deck-grid, .metrics-deck-row {
-    grid-template-columns: 1fr;
+
+  .slide-hero-title {
+    font-size: 1.85rem;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    word-break: break-word;
+    hyphens: auto;
   }
-  .mechanics-steps-bar {
-    flex-wrap: wrap;
+
+  .slide-hero-desc {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .key-banner-pill {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  .slide-footer-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  .meta-names {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  /* Slide Main Headings */
+  .slide-main-heading {
+    font-size: 1.7rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    word-break: break-word;
+  }
+
+  .slide-sub-heading {
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+
+  .stat-highlight-pill {
+    font-size: 0.82rem;
+    padding: 6px 14px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  /* Cards on Mobile */
+  .deck-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  /* Problem & Journal */
+  .problem-list-col {
+    gap: 14px;
+  }
+
+  .red-edge {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .card-icon-badge {
+    font-size: 1.5rem;
+  }
+
+  .card-content-block h3 {
+    font-size: 1.05rem;
+  }
+
+  .card-content-block p {
+    font-size: 0.85rem;
+  }
+
+  .journal-items {
     gap: 8px;
   }
+
+  .task-line {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .task-info strong {
+    font-size: 0.85rem;
+  }
+
+  .task-info span {
+    font-size: 0.75rem;
+  }
+
+  /* Grid 4 modules on Mobile */
+  .grid-4-deck {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .principle-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+  }
+
+  /* Simulator on Mobile */
+  .mechanics-steps-bar {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .mech-step {
+    flex-shrink: 0;
+    padding: 6px 10px;
+  }
+
+  .step-num {
+    width: 26px;
+    height: 26px;
+    font-size: 0.8rem;
+  }
+
+  .step-titles strong {
+    font-size: 0.78rem;
+  }
+
+  .step-titles small {
+    display: none;
+  }
+
   .mech-step-arrow {
     display: none;
   }
-  .form-grid-deck, .final-success-grid {
+
+  .presets-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .presets-row span {
+    width: 100%;
+    margin-bottom: 2px;
+  }
+
+  .preset-btn {
+    font-size: 0.72rem;
+    padding: 5px 10px;
+  }
+
+  .form-grid-deck {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .panel-bottom {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .panel-bottom .btn {
+    width: 100%;
+  }
+
+  .final-success-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Comparison Section */
+  .memory-chips-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deck-compare-table th, .deck-compare-table td {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+  }
+
+  /* Pricing Cards */
+  .pricing-deck-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .price-deck-card {
+    padding: 24px 18px;
+  }
+
+  .p-num {
+    font-size: 2.3rem;
+  }
+
+  /* Metrics */
+  .metrics-deck-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .m-val {
+    font-size: 2.5rem;
+  }
+
+  .fin-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .fin-num {
+    font-size: 1.3rem;
+  }
+
+  /* Roadmap */
+  .roadmap-deck-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .roadmap-stage {
+    padding: 24px 18px;
+  }
+
+  /* Final Slide */
+  .final-quote {
+    font-size: 1.8rem;
+    line-height: 1.25;
+  }
+
+  .final-mission {
+    font-size: 0.95rem;
+  }
+
+  .final-authors-card {
+    padding: 18px 16px;
+  }
+
+  .authors-names-big {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .authors-uni {
+    font-size: 0.8rem;
+  }
+
+  .final-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .final-actions .btn {
+    width: 100%;
   }
 }
