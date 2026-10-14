@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>РУТИНА AWAY — Интеллектуальный помощник для ИП и малого бизнеса</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="scroll-mode">
+
+  <!-- Presentation Control Topbar -->
+  <header class="deck-topbar">
+    <div class="topbar-left">
+      <div class="brand-logo-deck">
+        <span class="logo-sym-deck">Б</span>
+      </div>
+      <div class="brand-info">
+        <span class="project-title">РУТИНА <span class="brand-accent">AWAY</span></span>
+        <span class="project-subtitle">Презентация сервиса • 2026</span>
+      </div>
+    </div>
+
+    <!-- Slide Thumbnails / Indicator -->
+    <div class="deck-slide-nav">
+      <button class="nav-arrow-btn" onclick="prevSlide()" title="Предыдущий слайд (←)">❮</button>
+      <div class="slide-counter">
+        <span id="currentSlideNum">01</span> / <span id="totalSlidesNum">11</span>
+      </div>
+      <button class="nav-arrow-btn" onclick="nextSlide()" title="Следующий слайд (→)">❯</button>
+    </div>
+
+    <div class="topbar-right">
+      <button class="btn btn-sm btn-primary" onclick="openLeadModal()">Заявка на пилот</button>
+    </div>
+  </header>
+
+  <!-- Progress Bar at top -->
+  <div class="deck-progress-line">
+    <div class="deck-progress-fill" id="slideProgressFill"></div>
+  </div>
+
+  <!-- SLIDES DECK WRAPPER -->
+  <main class="presentation-deck" id="presentationDeck">
+
+    <!-- ================= SLIDE 1: ТИТУЛЬНЫЙ ================= -->
+    <section class="slide-deck-item active" id="slide-1" data-slide-index="1">
+      <div class="slide-inner title-slide-layout">
+        <div class="slide-top-tag">КОНЦЕПЦИЯ ПРОЕКТА</div>
+        
+        <div class="title-slide-content">
+          <div class="title-brand-badge">
+            <span class="brand-large">РУТИНА <span class="brand-accent">AWAY</span></span>
+          </div>
+          <h1 class="slide-hero-title">
+            Интеллектуальный помощник<br>для ИП и малого бизнеса
+          </h1>
+          <p class="slide-hero-desc">
+            Автоматизация документооборота, контроля сроков и типовых клиентских обращений без расширения административного штата.
+          </p>
+
+          <div class="key-banner-pill">
+            <span class="pill-icon">✨</span>
+            <span>Один цифровой ассистент вместо десятков рутинных действий</span>
+          </div>
+        </div>
+
+        <div class="slide-footer-meta">
+          <div class="meta-authors">
+            <span class="meta-label">ПОДГОТОВИЛИ СТУДЕНТЫ БГЭУ (ФМк, 3 КУРС):</span>
+            <span class="meta-names">Карлович Эдуард Геннадьевич • Колядко Никита Дмитриевич • Быков Алексей Дмитриевич</span>
+          </div>
+          <div class="meta-year">Презентация сервиса • 2026</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 2: ПРОБЛЕМА ================= -->
+    <section class="slide-deck-item" id="slide-2" data-slide-index="2">
+      <div class="slide-inner">
+        <div class="slide-header-block">
+          <span class="slide-category">ПРОБЛЕМА</span>
+          <h2 class="slide-main-heading">Перегрузка предпринимателя рутиной</h2>
+          <div class="stat-highlight-pill">Итог: до 40% рабочего дня уходит на рутину</div>
+        </div>
+
+        <div class="slide-columns-split">
+          <!-- 3 Problem Cards -->
+          <div class="problem-list-col">
+            <div class="deck-card red-edge">
+              <div class="card-icon-badge">⚖️</div>
+              <div class="card-content-block">
+                <h3>Дефицит кадров: нет юриста и секретаря</h3>
+                <p>Владелец бизнеса вынужден сам вести делопроизводство, вникать в юридические формулировки и отвлекаться от стратегии.</p>
+              </div>
+            </div>
+
+            <div class="deck-card red-edge">
+              <div class="card-icon-badge">📄</div>
+              <div class="card-content-block">
+                <h3>Бесконечный документооборот</h3>
+                <p>Постоянное оформление актов, договоров и заявлений вручную, копирование реквизитов и риск ошибок.</p>
+              </div>
+            </div>
+
+            <div class="deck-card red-edge">
+              <div class="card-icon-badge">⏰</div>
+              <div class="card-content-block">
+                <h3>Риск просрочки отчетности</h3>
+                <p>Сложно держать в фокусе десятки обязательных дедлайнов (УСН, подоходный, даты закрытия актов).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Journal of urgent tasks (From Presentation Visual) -->
+          <div class="journal-col">
+            <div class="deck-card journal-widget">
+              <div class="journal-head">
+                <span class="journal-badge">ДОКУМЕНТООБОРОТ ИП • В ОЧЕРЕДИ</span>
+                <span class="journal-dot-live"></span>
+              </div>
+              <div class="journal-title">Журнал неотложных задач</div>
+              
+              <div class="journal-items">
+                <div class="task-line urgent">
+                  <span class="task-flag">СРОЧНО</span>
+                  <div class="task-info">
+                    <strong>Договор подряда № 28-У</strong>
+                    <span>Требуется правка реквизитов и приложений</span>
+                  </div>
+                </div>
+
+                <div class="task-line warning">
+                  <span class="task-flag">6 ДНЕЙ</span>
+                  <div class="task-info">
+                    <strong>Акт приема-передачи услуг</strong>
+                    <span>Ожидает подписания и отправки клиенту</span>
+                  </div>
+                </div>
+
+                <div class="task-line danger">
+                  <span class="task-flag">ДЕБЕТ</span>
+                  <div class="task-info">
+                    <strong>Налоговый дедлайн: УСН</strong>
+                    <span>Срок сдачи отчёта истекает в пятницу</span>
+                  </div>
+                </div>
+
+                <div class="task-line info">
+                  <span class="task-flag">ПОЧТА</span>
+                  <div class="task-info">
+                    <strong>Ответы на 12 типовых писем</strong>
+                    <span>Повторяющиеся вопросы от контрагентов</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="journal-takeaway">
+                ⚠️ <strong>Главный барьер</strong> — не дефицит информации, а огромный объём мелких задач.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 3: РЕШЕНИЕ (4 МОДУЛЯ) ================= -->
+    <section class="slide-deck-item" id="slide-3" data-slide-index="3">
+      <div class="slide-inner">
+        <div class="slide-header-block">
+          <span class="slide-category">РЕШЕНИЕ</span>
+          <h2 class="slide-main-heading">Ключевые возможности сервиса РУТИНА AWAY</h2>
+          <p class="slide-sub-heading">Четыре специализированных модуля заменяют десятки ручных административных шагов</p>
+        </div>
+
+        <div class="grid-4-deck">
+          <!-- 01 -->
+          <div class="deck-card module-deck-card">
+            <div class="mod-top-row">
+              <span class="mod-idx">01</span>
+              <span class="mod-ico">📝</span>
+            </div>
+            <h3>Черновики документов</h3>
+            <p>Быстрое создание договоров, актов, счетов и заявлений по запросу на обычном языке.</p>
+            <div class="mod-chip">Модуль «Документы»</div>
+          </div>
+
+          <!-- 02 -->
+          <div class="deck-card module-deck-card">
+            <div class="mod-top-row">
+              <span class="mod-idx">02</span>
+              <span class="mod-ico">⏰</span>
+            </div>
+            <h3>Контроль сроков</h3>
+            <p>Точные напоминания о дедлайнах, налоговых датах, оплатах и сроках пролонгации.</p>
+            <div class="mod-chip">Модуль «Сроки»</div>
+          </div>
+
+          <!-- 03 -->
+          <div class="deck-card module-deck-card">
+            <div class="mod-top-row">
+              <span class="mod-idx">03</span>
+              <span class="mod-ico">🤖</span>
+            </div>
+            <h3>Ответы клиентам</h3>
+            <p>Обработка частых типовых вопросов компании и исполнение рутинных административных поручений.</p>
+            <div class="mod-chip">Модуль «Секретарь»</div>
+          </div>
+
+          <!-- 04 -->
+          <div class="deck-card module-deck-card">
+            <div class="mod-top-row">
+              <span class="mod-idx">04</span>
+              <span class="mod-ico">🗄️</span>
+            </div>
+            <h3>Единый архив</h3>
+            <p>Структурированное и безопасное хранилище файлов со сквозным контекстным поиском по клиентам.</p>
+            <div class="mod-chip">Модуль «Архив»</div>
+          </div>
+        </div>
+
+        <div class="principle-banner">
+          <span class="shield-badge">🛡️ БЕЗОПАСНОСТЬ</span>
+          <span><strong>Принцип надёжности:</strong> ИИ выполняет рутину, человек принимает решения. Окончательная проверка и юридическая сила всегда остаются за предпринимателем.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 4: МЕХАНИКА РАБОТЫ (ИНТЕРАКТИВНЫЙ ТРЕНАЖЕР) ================= -->
+    <section class="slide-deck-item" id="slide-4" data-slide-index="4">
+      <div class="slide-inner">
+        <div class="slide-header-block">
+          <span class="slide-category">МЕХАНИКА РАБОТЫ</span>
+          <h2 class="slide-main-heading">Пять шагов от задачи до результата</h2>
+          <div class="stat-highlight-pill pulse-glow">Интерактивный тренажер: нажмите на шаги</div>
+        </div>
+
+        <!-- 5 Steps Horizontal Navigator -->
+        <div class="mechanics-steps-bar">
+          <div class="mech-step active" onclick="setMechStep(1)">
+            <span class="step-num">1</span>
+            <div class="step-titles">
+              <strong>1. Задача</strong>
+              <small>Запрос в свободной форме</small>
+            </div>
+          </div>
+          <div class="mech-step-arrow">→</div>
+          <div class="mech-step" onclick="setMechStep(2)">
+            <span class="step-num">2</span>
+            <div class="step-titles">
+              <strong>2. Детали</strong>
+              <small>Уточнение суммы и реквизитов</small>
+            </div>
+          </div>
+          <div class="mech-step-arrow">→</div>
+          <div class="mech-step" onclick="setMechStep(3)">
+            <span class="step-num">3</span>
+            <div class="step-titles">
+              <strong>3. Черновик</strong>
+              <small>Мгновенная сборка файла</small>
+            </div>
+          </div>
+          <div class="mech-step-arrow">→</div>
+          <div class="mech-step" onclick="setMechStep(4)">
+            <span class="step-num">4</span>
+            <div class="step-titles">
+              <strong>4. Контроль</strong>
+              <small>Проверка человеком</small>
+            </div>
+          </div>
+          <div class="mech-step-arrow">→</div>
+          <div class="mech-step" onclick="setMechStep(5)">
+            <span class="step-num">5</span>
+            <div class="step-titles">
+              <strong>5. Архив</strong>
+              <small>Сохранение в базу</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Screen Container -->
+        <div class="deck-card mech-interactive-box">
+          <!-- Step 1 Panel -->
+          <div class="mech-panel active" id="mechPanel1">
+            <div class="panel-header">
+              <span class="p-title">Шаг 1: Запрос ассистенту РУТИНА AWAY</span>
+              <span class="p-status ready">ИИ готов к обработке</span>
+            </div>
+            <div class="presets-row">
+              <span>Быстрый выбор:</span>
+              <button class="preset-btn active" onclick="applyPreset('contract')">Договор и Акт (ООО Вектор-С)</button>
+              <button class="preset-btn" onclick="applyPreset('support')">Счет и статус (ИП Смирнов)</button>
+              <button class="preset-btn" onclick="applyPreset('tax')">Налоговый отчет УСН</button>
+            </div>
+            <textarea id="taskCommandInput" class="mech-textarea">Сделай договор на оказание услуг и акт для ООО «Вектор-С» на сумму 1 450 BYN со сроком сдачи до 25 октября 2026 года.</textarea>
+            <div class="panel-bottom">
+              <span class="input-tip">💡 Можно диктовать голосом или отправлять сообщением в Telegram</span>
+              <button class="btn btn-primary" onclick="setMechStep(2)">Далее: Извлечь реквизиты →</button>
+            </div>
+          </div>
+
+          <!-- Step 2 Panel -->
+          <div class="mech-panel" id="mechPanel2">
+            <div class="panel-header">
+              <span class="p-title">Шаг 2: Встроенная память извлекла реквизиты контрагента</span>
+              <span class="p-status success">Найдено в Архиве РУТИНА AWAY</span>
+            </div>
+            <div class="form-grid-deck">
+              <div class="fg">
+                <label>Контрагент:</label>
+                <input type="text" id="valClient" value="ООО «Вектор-С»" class="mech-input">
+              </div>
+              <div class="fg">
+                <label>УНП:</label>
+                <input type="text" id="valUnp" value="193482109" class="mech-input">
+              </div>
+              <div class="fg">
+                <label>Сумма сделки:</label>
+                <input type="text" id="valAmount" value="1 450 BYN" class="mech-input">
+              </div>
+              <div class="fg">
+                <label>Дедлайн исполнения:</label>
+                <input type="text" id="valDeadline" value="25.10.2026" class="mech-input">
+              </div>
+            </div>
+            <div class="panel-bottom">
+              <button class="btn btn-outline" onclick="setMechStep(1)">← Назад</button>
+              <button class="btn btn-primary" onclick="setMechStep(3)">Собрать черновик документа →</button>
+            </div>
+          </div>
+
+          <!-- Step 3 Panel -->
+          <div class="mech-panel" id="mechPanel3">
+            <div class="panel-header">
+              <span class="p-title">Шаг 3: Автоматическая сборка документа по нормам РБ</span>
+              <span class="p-status success">Сгенерировано за 1.2 сек</span>
+            </div>
+            <div class="doc-deck-preview">
+              <div class="doc-deck-page">
+                <div class="doc-p-header">ДОГОВОР ВОЗМЕЗДНОГО ОКАЗАНИЯ УСЛУГ № 14</div>
+                <div class="doc-p-date">г. Минск, Республика Беларусь • 10 октября 2026 г.</div>
+                <p><strong>Заказчик:</strong> <span id="docClientText">ООО «Вектор-С»</span> (УНП <span id="docUnpText">193482109</span>)</p>
+                <p><strong>Исполнитель:</strong> Индивидуальный предприниматель Колядко Н. Д.</p>
+                <p><strong>1. Предмет:</strong> Комплекс консультационных и маркетинговых услуг.</p>
+                <p><strong>2. Сумма:</strong> <mark id="docAmountText">1 450.00 белорусских рублей</mark>, без НДС. Срок выполнения: до <mark id="docDeadlineText">25.10.2026</mark>.</p>
+              </div>
+            </div>
+            <div class="panel-bottom">
+              <button class="btn btn-outline" onclick="setMechStep(2)">← Изменить данные</button>
+              <button class="btn btn-primary" onclick="setMechStep(4)">Перейти к контролю →</button>
+            </div>
+          </div>
+
+          <!-- Step 4 Panel -->
+          <div class="mech-panel" id="mechPanel4">
+            <div class="panel-header">
+              <span class="p-title">Шаг 4: Проверка и валидация человеком</span>
+              <span class="p-status warning">Требуется подтверждение</span>
+            </div>
+            <div class="control-checklist">
+              <label class="check-row">
+                <input type="checkbox" checked>
+                <span>Реквизиты контрагента и УНП сверены с реестром ЕГР РБ</span>
+              </label>
+              <label class="check-row">
+                <input type="checkbox" checked>
+                <span>Сумма (1 450 BYN) и условия оплаты соответствуют договорённостям</span>
+              </label>
+              <label class="check-row">
+                <input type="checkbox" checked>
+                <span>Дедлайн (до 25.10) автоматически занесен в календарь модуля «Сроки»</span>
+              </label>
+            </div>
+            <div class="panel-bottom">
+              <button class="btn btn-outline" onclick="setMechStep(3)">← Вернуться к правке</button>
+              <button class="btn btn-success" onclick="setMechStep(5)">Утвердить и отправить в Архив ✓</button>
+            </div>
+          </div>
+
+          <!-- Step 5 Panel -->
+          <div class="mech-panel" id="mechPanel5">
+            <div class="panel-header">
+              <span class="p-title">Шаг 5: Документ в Архиве, контроль сроков активен</span>
+              <span class="p-status success">Готово</span>
+            </div>
+            <div class="final-success-grid">
+              <div class="f-card">
+                <h4>📁 Архив РУТИНА AWAY</h4>
+                <p>Договор № 14 и Акт № 14 сохранены в базу контрагента <strong>ООО «Вектор-С»</strong>.</p>
+                <button class="btn btn-xs btn-outline" onclick="alert('Скачан тестовый PDF договора РУТИНА AWAY')">Скачать PDF</button>
+              </div>
+              <div class="f-card">
+                <h4>⏰ Модуль «Сроки»</h4>
+                <p>Напоминание о сдаче работ и оплате установлено на <strong>25.10.2026</strong>.</p>
+              </div>
+              <div class="f-card">
+                <h4>🤖 Модуль «Секретарь»</h4>
+                <p>Подготовлено сопроводительное письмо клиенту для отправки в 1 клик.</p>
+              </div>
+            </div>
+            <div class="panel-bottom center-actions">
+              <button class="btn btn-outline" onclick="setMechStep(1)">Попробовать другой запрос</button>
+              <button class="btn btn-primary" onclick="openLeadModal()">Записаться на пилот</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 5: АУДИТОРИЯ И РЕЕСТР ================= -->
+    <section class="slide-deck-item" id="slide-5" data-slide-index="5">
+      <div class="slide-inner">
+        <div class="slide-header-block">
+          <span class="slide-category">АУДИТОРИЯ</span>
+          <h2 class="slide-main-heading">Целевые сегменты бизнеса</h2>
+          <div class="stat-highlight-pill">Фокус: документов уже много, а секретаря ещё нет</div>
+        </div>
+
+        <div class="audience-grid-deck">
+          <div class="audience-col">
+            <div class="deck-card target-card">
+              <div class="target-badge">СЕГМЕНТ 1</div>
+              <h3>ИП и микробизнес</h3>
+              <p>Услуги, торговля, креативные и маркетинговые агентства, частные консультанты и эксперты без штатных помощников.</p>
+              <ul class="target-points">
+                <li>Самостоятельное оформление счетов и актов</li>
+                <li>Дефицит времени на продажи из-за бумаг</li>
+                <li>Потребность в едином контроле сроков</li>
+              </ul>
+            </div>
+
+            <div class="deck-card target-card">
+              <div class="target-badge">СЕГМЕНТ 2</div>
+              <h3>Малые компании (ООО)</h3>
+              <p>Компании с растущим потоком типовых контрактов и актов, где нанимать отдельного юриста или документоведа ещё нерентабельно.</p>
+              <ul class="target-points">
+                <li>Поток повторяющихся договоров</li>
+                <li>Необходимость разгрузить директора</li>
+                <li>Организация порядка в клиентских файлах</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Registry preview from presentation -->
+          <div class="registry-col">
+            <div class="deck-card registry-preview-widget">
+              <div class="registry-header">
+                <div>
+                  <span class="reg-label">РУТИНА AWAY • РЕЕСТР</span>
+                  <h4>База договоров и контрагентов</h4>
+                </div>
+                <span class="reg-live-status">АКТИВНО</span>
+              </div>
+              <p class="reg-desc">Полная история, реквизиты и дедлайны каждого клиента в одном окне:</p>
+
+              <div class="reg-items-list">
+                <div class="reg-item">
+                  <div class="reg-entity">
+                    <strong>ООО «Вектор-С»</strong>
+                    <span>Договор № 14 • Маркетинг</span>
+                  </div>
+                  <span class="reg-tag green">Акт сформирован • Оплата до 25.10</span>
+                </div>
+
+                <div class="reg-item">
+                  <div class="reg-entity">
+                    <strong>ИП Смирнов А. В.</strong>
+                    <span>Оказание услуг • Дизайн</span>
+                  </div>
+                  <span class="reg-tag blue">Черновик соглашения проверен</span>
+                </div>
+
+                <div class="reg-item">
+                  <div class="reg-entity">
+                    <strong>Студия дизайна «Арт»</strong>
+                    <span>Счёт № 89 • Сопровождение</span>
+                  </div>
+                  <span class="reg-tag purple">Автоматическое продление лицензии</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 6: НОВИЗНА (ПАМЯТЬ КОМПАНИИ) ================= -->
+    <section class="slide-deck-item" id="slide-6" data-slide-index="6">
+      <div class="slide-inner">
+        <div class="slide-header-block">
+          <span class="slide-category">НОВИЗНА</span>
+          <h2 class="slide-main-heading">Понимание бизнес-контекста</h2>
+          <p class="slide-sub-heading">Главное отличие от обычных чат-ботов: встроенная память специфики вашего бизнеса</p>
+        </div>
+
+        <div class="comparison-dual-deck">
+          <!-- Regular Chatbots -->
+          <div class="deck-card comp-box red-tone">
+            <div class="comp-box-header">
+              <span class="comp-tag-badge red">ОБЫЧНЫЕ ЧАТ-БОТЫ</span>
+              <h3>Каждый раз с нуля</h3>
+            </div>
+            <ul class="comp-features-list">
+              <li>❌ Требуют повторного ввода реквизитов при каждом запросе</li>
+              <li>❌ Не помнят ваших постоянных клиентов и договоров</li>
+              <li>❌ Не знают специфики белорусских бланков и законов</li>
+              <li>❌ Оторваны от реальных сроков и календаря</li>
+            </ul>
+          </div>
+
+          <!-- Rutina Away -->
+          <div class="deck-card comp-box green-tone highlight-shadow">
+            <div class="comp-box-header">
+              <span class="comp-tag-badge green">РУТИНА AWAY</span>
+              <h3>Встроенная память компании</h3>
+            </div>
+            <p class="comp-lead">Помнит клиентов, типовые договоры, историю сделок и незавершённые дедлайны:</p>
+            <div class="memory-chips-grid">
+              <div class="m-chip"><span>•</span> Знание контрагентов</div>
+              <div class="m-chip"><span>•</span> Каталог услуг</div>
+              <div class="m-chip"><span>•</span> Архив договоров</div>
+              <div class="m-chip"><span>•</span> Календарь сроков</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 7: СРАВНЕНИЕ (ТАБЛИЦА) ================= -->
+    <section class="slide-deck-item" id="slide-7" data-slide-index="7">
+      <div class="slide-inner">
+        <div class="slide-header-block">
+          <span class="slide-category">СРАВНЕНИЕ</span>
+          <h2 class="slide-main-heading">Конкурентные преимущества</h2>
+          <div class="stat-highlight-pill">Ценность: экономия времени предпринимателя, а не просто генерация текста</div>
+        </div>
+
+        <div class="deck-card table-deck-container">
+          <table class="deck-compare-table">
+            <thead>
+              <tr>
+                <th>Критерий / Задача</th>
+                <th>Обычный подход</th>
+                <th class="table-brand-col">Решение РУТИНА AWAY</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Хранилище файлов</strong></td>
+                <td>Хранилище разрозненных файлов по папкам</td>
+                <td class="table-brand-col">Создание и умная организация базы в один клик</td>
+              </tr>
+              <tr>
+                <td><strong>Шаблоны документов</strong></td>
+                <td>Пустые шаблоны из интернета с ручным заполнением</td>
+                <td class="table-brand-col">Заполнение черновика под конкретную ситуацию и клиента</td>
+              </tr>
+              <tr>
+                <td><strong>Контроль дедлайнов</strong></td>
+                <td>Изолированный внешний календарь (легко забыть)</td>
+                <td class="table-brand-col">Напоминание автоматически связано с документом</td>
+              </tr>
+              <tr>
+                <td><strong>Искусственный интеллект</strong></td>
+                <td>Универсальный чат-бот без знаний о вашем бизнесе</td>
+                <td class="table-brand-col">ИИ в контексте конкретного бизнеса и законодательства РБ</td>
+              </tr>
+              <tr>
+                <td><strong>Организация работы</strong></td>
+                <td>5–7 разных сервисов и постоянные переключения</td>
+                <td class="table-brand-col">Единый помощник в одном окне</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 8: МОНЕТИЗАЦИЯ ================= -->
+    <section class="slide-deck-item" id="slide-8" data-slide-index="8">
+      <div class="slide-inner">
+        <div class="slide-header-block">
+          <span class="slide-category">МОНЕТИЗАЦИЯ</span>
+          <h2 class="slide-main-heading">Модель подписки (SaaS)</h2>
+          <p class="slide-sub-heading">Дополнительный доход: интеграции с CRM, расширенные лимиты генерации, корпоративные сценарии</p>
+        </div>
+
+        <div class="pricing-deck-grid">
+          <!-- Базовый -->
+          <div class="deck-card price-deck-card">
+            <div class="p-header">
+              <h3>Базовый</h3>
+              <span class="p-target">Для ИП и экспертов</span>
+            </div>
+            <div class="p-price">
+              <span class="p-num">25</span>
+              <span class="p-currency">BYN / месяц</span>
+            </div>
+            <p class="p-desc">Индивидуальный документооборот и контроль сроков.</p>
+            <ul class="p-features">
+              <li>✓ Подготовка черновиков договоров и актов</li>
+              <li>✓ Контроль ключевых дедлайнов</li>
+              <li>✓ Базовый архив документов</li>
+            </ul>
+            <button class="btn btn-outline btn-block" onclick="openLeadModal('Базовый (25 BYN)')">Выбрать тариф</button>
+          </div>
+
+          <!-- Бизнес -->
+          <div class="deck-card price-deck-card featured-card">
+            <div class="popular-ribbon-deck">РЕКОМЕНДУЕМ</div>
+            <div class="p-header">
+              <h3>Бизнес</h3>
+              <span class="p-target">Для малых ООО</span>
+            </div>
+            <div class="p-price">
+              <span class="p-num">45</span>
+              <span class="p-currency">BYN / месяц</span>
+            </div>
+            <p class="p-desc">Увеличенные лимиты документов и шаблонов.</p>
+            <ul class="p-features">
+              <li>✓ Все возможности Базового тарифа</li>
+              <li>✓ Модуль «Секретарь» (ответы клиентам)</li>
+              <li>✓ Расширенная память контекста компании</li>
+              <li>✓ Интеграция с Telegram-уведомлениями</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="openLeadModal('Бизнес (45 BYN)')">Выбрать тариф</button>
+          </div>
+
+          <!-- Командный -->
+          <div class="deck-card price-deck-card">
+            <div class="p-header">
+              <h3>Командный</h3>
+              <span class="p-target">Для нескольких сотрудников</span>
+            </div>
+            <div class="p-price">
+              <span class="p-num">60</span>
+              <span class="p-currency">BYN / месяц</span>
+            </div>
+            <p class="p-desc">Общая база документов и разграничение прав.</p>
+            <ul class="p-features">
+              <li>✓ Доступ для всей команды компании</li>
+              <li>✓ Разграничение уровней доступа</li>
+              <li>✓ Приоритетная поддержка шаблонов</li>
+              <li>✓ Интеграция с банковскими выписками</li>
+            </ul>
+            <button class="btn btn-outline btn-block" onclick="openLeadModal('Командный (60 BYN)')">Выбрать тариф</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 9: РЕЗУЛЬТАТЫ ================= -->
+    <section class="slide-deck-item" id="slide-9" data-slide-index="9">
+      <div class="slide-inner">
+        <div class="slide-header-block">
+          <span class="slide-category">РЕЗУЛЬТАТЫ</span>
+          <h2 class="slide-main-heading">Экономический и социальный эффект</h2>
+          <div class="stat-highlight-pill">Социальная миссия: снижение административного барьера для начинающих предпринимателей в стране</div>
+        </div>
+
+        <div class="metrics-deck-row">
+          <div class="deck-card metric-deck-box">
+            <div class="m-val">+10 ч</div>
+            <h4>Свободного времени в неделю</h4>
+            <p>Фокус на продажах, работе с клиентами и развитии бизнеса.</p>
+          </div>
+
+          <div class="deck-card metric-deck-box">
+            <div class="m-val">0 BYN</div>
+            <h4>Расходов на расширение штата</h4>
+            <p>Рост эффективности компании без найма секретарей и юристов.</p>
+          </div>
+
+          <div class="deck-card metric-deck-box">
+            <div class="m-val">100%</div>
+            <h4>Соблюдение сроков</h4>
+            <p>Снижение бюрократического стресса и рисков штрафов.</p>
+          </div>
+        </div>
+
+        <!-- Startup Financial Highlights From Official Application -->
+        <div class="deck-card finance-calc-card">
+          <div class="fin-title">Финансовый расчёт команды стартапа (Заявка на конкурс БГЭУ):</div>
+          <div class="fin-grid">
+            <div class="fin-col">
+              <span class="fin-num">70 000 BYN</span>
+              <span class="fin-label">Потребность в финансировании</span>
+            </div>
+            <div class="fin-col">
+              <span class="fin-num">~300</span>
+              <span class="fin-label">Клиентов к 3-му году</span>
+            </div>
+            <div class="fin-col">
+              <span class="fin-num">~500 000 BYN</span>
+              <span class="fin-label">Выручка к 3-му году</span>
+            </div>
+            <div class="fin-col">
+              <span class="fin-num">18–20 мес.</span>
+              <span class="fin-label">Окупаемость проекта</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 10: ДОРОЖНАЯ КАРТА ================= -->
+    <section class="slide-deck-item" id="slide-10" data-slide-index="10">
+      <div class="slide-inner">
+        <div class="slide-header-block">
+          <span class="slide-category">ДОРОЖНАЯ КАРТА</span>
+          <h2 class="slide-main-heading">Этапы запуска продукта</h2>
+          <p class="slide-sub-heading">Пошаговый план развития сервиса РУТИНА AWAY</p>
+        </div>
+
+        <div class="roadmap-deck-grid">
+          <div class="deck-card roadmap-stage">
+            <div class="stage-tag active">ЭТАП 1 • 1–6 МЕС.</div>
+            <h3>Создание MVP</h3>
+            <p>Генератор типовых договоров, базовый архив и календарь обязательных сроков.</p>
+          </div>
+
+          <div class="deck-card roadmap-stage">
+            <div class="stage-tag">ЭТАП 2 • 6–12 МЕС.</div>
+            <h3>Пилотное тестирование</h3>
+            <p>Апробация на реальных ИП и небольших компаниях, калибровка точности контекста.</p>
+          </div>
+
+          <div class="deck-card roadmap-stage">
+            <div class="stage-tag">ЭТАП 3 • 12–24 МЕС.</div>
+            <h3>Масштабирование</h3>
+            <p>Интеграции с CRM, банковскими сервисами и расширение базы отраслевых сценариев на всю Беларусь.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 11: ФИНАЛ И РАЗРАБОТЧИКИ ================= -->
+    <section class="slide-deck-item" id="slide-11" data-slide-index="11">
+      <div class="slide-inner final-slide-layout">
+        <div class="final-top">
+          <div class="title-brand-badge">
+            <span class="brand-large">РУТИНА <span class="brand-accent">AWAY</span></span>
+          </div>
+          <h2 class="final-quote">«Меньше рутины. Больше бизнеса.»</h2>
+          <p class="final-mission">
+            Цифровой помощник, позволяющий малому бизнесу работать со скоростью и организованностью крупной корпорации.
+          </p>
+        </div>
+
+        <div class="final-authors-card deck-card">
+          <div class="authors-badge">РАЗРАБОТЧИКИ ПРОЕКТА:</div>
+          <div class="authors-names-big">
+            Карлович Эдуард Геннадьевич • Колядко Никита Дмитриевич • Быков Алексей Дмитриевич
+          </div>
+          <p class="authors-uni">
+            Белорусский государственный экономический университет (БГЭУ) • ФМк, 3 курс<br>
+            г. Минск, пр-т Партизанский, 26 • Тел: +375 33 613 7620 • nikita.kolyadko@gmail.com
+          </p>
+        </div>
+
+        <div class="final-actions">
+          <button class="btn btn-lg btn-primary" onclick="openLeadModal()">Подать заявку на участие в пилоте</button>
+          <button class="btn btn-lg btn-outline" onclick="goToSlide(4)">Открыть интерактивный тренажер</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Presentation Bottom Keyboard Helper -->
+  <footer class="deck-bottom-footer">
+    <div class="keys-guide">
+      <span>Навигация: </span>
+      <kbd>←</kbd> <kbd>→</kbd> стрелки на клавиатуре или кнопки вверху
+    </div>
+    <div class="footer-project-tag">
+      РУТИНА AWAY © 2026 • Конкурс «Поддержка молодежной инициативы»
+    </div>
+  </footer>
+
+  <!-- MODAL FOR PILOT SIGNUP -->
+  <div class="modal-backdrop" id="leadModal">
+    <div class="glass-card modal-window">
+      <button class="modal-close" onclick="closeLeadModal()">✕</button>
+      <div class="modal-header">
+        <h3>Заявка на участие в пилотном тестировании РУТИНА AWAY</h3>
+        <p>Первые 30 предпринимателей получают 3 месяца бесплатного доступа к платформе.</p>
+      </div>
+      <form id="pilotForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label>Ваше имя</label>
+          <input type="text" id="leadName" required placeholder="Никита Дмитриевич" class="sim-input">
+        </div>
+        <div class="form-group">
+          <label>Форма бизнеса / Сфера</label>
+          <select id="leadBusiness" class="sim-input">
+            <option value="ip">Индивидуальный предприниматель (ИП)</option>
+            <option value="ooo">Малое предприятие (ООО, ЧУП)</option>
+            <option value="freelance">Самозанятый / Эксперт</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Телефон / Telegram для связи</label>
+          <input type="text" id="leadContact" required placeholder="+375 33 613 7620" class="sim-input">
+        </div>
+        <div class="form-group">
+          <label>Интересующий тариф</label>
+          <input type="text" id="leadPlan" value="Пилотная программа" class="sim-input" readonly>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Отправить заявку команде</button>
+      </form>
+      <div id="modalSuccess" class="modal-success-state" style="display: none;">
+        <div class="success-icon">✓</div>
+        <h4>Заявка принята!</h4>
+        <p>Команда проекта «РУТИНА AWAY» свяжется с вами в течение 24 часов.</p>
+        <button class="btn btn-outline btn-sm" onclick="closeLeadModal()">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
